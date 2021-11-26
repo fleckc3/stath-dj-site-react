@@ -1,9 +1,9 @@
 import { AppBar, Box, Toolbar, IconButton } from "@mui/material";
 import SideDrawer from "./SideDrawer";
 import MenuIcon from "@mui/icons-material/Menu";
-import Logo from "../../assets/images/cs-logo-white.png";
+import Logo from "../../../assets/images/cs-logo-white.png";
 import { makeStyles } from "@mui/styles";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -49,7 +49,7 @@ const Header = ({ onAnimate, resetAnimate }) => {
     <Box>
       <AppBar position="fixed" color={scrollStyle} className={classes.appBar}>
         <Toolbar>
-          <img src={Logo} />
+          <img src={Logo} alt="logo" />
           <IconButton
             size="large"
             edge="end"
@@ -58,7 +58,7 @@ const Header = ({ onAnimate, resetAnimate }) => {
             sx={{ marginLeft: "auto" }}
             onClick={handleDrawerToggle}
           >
-            <MenuIcon />
+            <MenuIcon fontSize="large" />
           </IconButton>
         </Toolbar>
       </AppBar>

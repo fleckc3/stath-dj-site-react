@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { makeStyles } from "@mui/styles";
 import DesktopVideo from "../../assets/videos/universe-stath-1920x1080-compressed.mp4";
 import MobileVideo from "../../assets/videos/universe-stath-mobile-compressed.mp4";
 import { isMobile } from "react-device-detect";
 import CircularProgress from "@mui/material/CircularProgress";
-import SocialMediaButtonsMobile from "../layout/SocialMediaButtonsMobile";
+import SocialMediaButtonsMobile from "../common/SocialMediaButtonsMobile";
 import CaptureEmail from "../common/CaptureEmail";
 import "animate.css";
 
@@ -90,7 +90,7 @@ const BackgroundVideo = ({ animate }) => {
       <div className={classes.emailCapture}>
         <div
           id="bounce"
-          class={
+          className={
             animate
               ? "animate__animated animate__delay-1s animate__shakeX animate__repeat-2"
               : null

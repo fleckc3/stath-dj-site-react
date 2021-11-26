@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { TextField, Grid, Button } from "@mui/material";
 import isEmail from "validator/lib/isEmail";
-import Parse from "parse/dist/parse.min.js";
 import { isMobile } from "react-device-detect";
 import { makeStyles } from "@mui/styles";
 import { useSnackbar } from "notistack";
+import Parse from "parse/dist/parse.min.js";
 
 const useStyles = makeStyles((theme) => ({
   emailInput: {
@@ -45,12 +45,14 @@ const CaptureEmail = () => {
 
       try {
         const result = await newEmail.save();
-        console.log("PartyList created", result);
         enqueueSnackbar("Groovy, see ya for a party soon!", {
           variant: "warning",
         });
       } catch (error) {
         console.error("Error while creating PartyList: ", error);
+        enqueueSnackbar("There was an error submitting your contact details", {
+          variant: "error",
+        });
       }
     }
   };

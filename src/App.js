@@ -1,16 +1,17 @@
-import React, { Component, useState } from "react";
+import { Component } from "react";
 import { CssBaseline } from "@mui/material";
-import Header from "./components/layout/Header";
+import Header from "./components/layout/navigation/Header";
 import { ThemeProvider, Zoom } from "@mui/material";
 import theme from "./theme/theme";
 import BackgroundVideo from "./components/background-video/BackgroundVideo";
-import MusicVideoContent from "./components/layout/MusicVideoContent";
-import Testimonial from "./components/layout/Testimonial";
-import Footer from "./components/layout/Footer";
+import MusicVideoContent from "./components/common/MusicVideoContent";
+import Testimonial from "./components/common/Testimonial";
+import FooterDesktop from "./components/layout/footer/FooterDesktop";
 import { isMobile } from "react-device-detect";
-import FooterMobile from "./components/layout/FooterMobile";
+import FooterMobile from "./components/layout/footer/FooterMobile";
 import Parse from "parse/dist/parse.min.js";
 import { SnackbarProvider } from "notistack";
+import Footer from "./components/layout/footer/Footer";
 
 class App extends Component {
   constructor(props) {
@@ -53,7 +54,7 @@ class App extends Component {
             <BackgroundVideo animate={this.state.animate} />
             <MusicVideoContent />
             <Testimonial />
-            {isMobile ? <FooterMobile /> : <Footer />}
+            <Footer />
           </main>
         </SnackbarProvider>
       </ThemeProvider>

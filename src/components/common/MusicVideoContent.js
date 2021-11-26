@@ -70,9 +70,9 @@ const MusicVideoContent = () => {
               style={{ position: "absolute" }}
               src="https://www.youtube.com/embed/174rjcy0hEs"
               title="YouTube video player"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </div>
         </div>

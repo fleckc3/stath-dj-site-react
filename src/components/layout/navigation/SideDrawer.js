@@ -1,7 +1,6 @@
 import { Box, Drawer, List, ListItem, ListItemText, Link } from "@mui/material";
-import DrawerImage from "../../assets/images/drawer-image-01.png";
+import DrawerImage from "../../../assets/images/drawer-image-01.png";
 import { makeStyles } from "@mui/styles";
-import React, { useEffect } from "react";
 import Parse from "parse/dist/parse.min.js";
 
 const useStyles = makeStyles((theme) => ({

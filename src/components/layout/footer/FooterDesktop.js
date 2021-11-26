@@ -1,8 +1,8 @@
-import React from "react";
 import { makeStyles } from "@mui/styles";
-import { Grid, Typography } from "@mui/material";
-import LemonHead from "../../assets/images/lemon-head.png";
-import Stath from "../../assets/images/stath-logo-accented.png";
+import { Grid, Link, Typography } from "@mui/material";
+import LemonHead from "../../../assets/images/lemon-head.png";
+import Stath from "../../../assets/images/stath-logo-accented.png";
+import { useState } from "react";
 import Parse from "parse/dist/parse.min.js";
 
 const useStyles = makeStyles((theme) => ({
@@ -14,19 +14,30 @@ const useStyles = makeStyles((theme) => ({
   },
   lemonHead: {
     width: "auto",
-    height: "70px",
+    height: "100px",
     position: "absolute",
     zIndex: "1",
     bottom: 0,
     left: "50%",
-    transform: "translateX(-40%)",
     marginBottom: "10px",
+    transform: "translateX(-40%)",
+    [theme.breakpoints.down("sm")]: {
+      height: "70px",
+      marginBottom: "10px",
+    },
   },
   stathLettering: {
     height: "auto",
-    width: "100%",
+    width: "25%",
     position: "absolute",
     bottom: 0,
+    left: "50%",
+    transform: "translateX(-50%)",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+      left: "0",
+      transform: "none",
+    },
   },
   text: {
     color: "#ffffff",
@@ -36,8 +47,9 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "end",
   },
   link: {
-    textDecoration: "none",
-    color: "#ffffff",
+    "&:hover": {
+      color: "#00CC99",
+    },
   },
   linkRight: {
     textDecoration: "none",
@@ -46,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function FooterMobile(props) {
+const Footer = ({ onFormOpen }) => {
   const classes = useStyles();
 
   const handlePdfDownload = async () => {
@@ -67,25 +79,39 @@ function FooterMobile(props) {
     <div className={classes.root}>
       <img className={classes.lemonHead} src={LemonHead} alt="Lemon Head" />
       <img className={classes.stathLettering} src={Stath} alt="Chris Stath" />
-      <Grid container padding={2}>
-        <Grid item container xs={6} spacing={2}>
+      <Grid container padding={2} justifyContent="center">
+        <Grid item container xs={3} spacing={2}>
           <Grid item xs={12}>
             <Typography className={classes.text} variant="h4">
               Press Kit
             </Typography>
-            <a className={classes.link} href="#" onClick={handlePdfDownload}>
+            <Link
+              className={classes.link}
+              color="#ffffff"
+              variant="h6"
+              onClick={handlePdfDownload}
+              underline="none"
+              component="button"
+            >
               Download
-            </a>
+            </Link>
           </Grid>
           <Grid item xs={12}>
             <Typography className={classes.text} variant="h4">
-              <a className={classes.link} href="#">
+              <Link
+                className={classes.link}
+                color="#ffffff"
+                onClick={onFormOpen}
+                underline="none"
+                component="button"
+                variant="h4"
+              >
                 Contact
-              </a>
+              </Link>
             </Typography>
           </Grid>
         </Grid>
-        <Grid item container xs={6} spacing={1}>
+        <Grid item container xs={3} spacing={1}>
           <Grid item xs={12}>
             <Typography className={classes.footerTextRight} variant="h4">
               Music
@@ -93,48 +119,60 @@ function FooterMobile(props) {
           </Grid>
           <Grid item xs={12}>
             <Typography className={classes.footerTextRight}>
-              <a
+              <Link
+                color="#ffffff"
+                underline="none"
                 className={classes.link}
+                variant="h6"
                 href="https://open.spotify.com/artist/6RZiysr25NvqsC76k0jcdn"
               >
                 Spotify
-              </a>
+              </Link>
             </Typography>
           </Grid>
           <Grid item xs={12}>
             <Typography className={classes.footerTextRight}>
-              <a
+              <Link
+                color="#ffffff"
+                underline="none"
+                variant="h6"
                 className={classes.link}
                 href="https://music.apple.com/us/artist/chris-stath"
               >
                 Apple Music
-              </a>
+              </Link>
             </Typography>
           </Grid>
           <Grid item xs={12}>
             <Typography className={classes.footerTextRight}>
-              <a
+              <Link
+                color="#ffffff"
+                underline="none"
+                variant="h6"
                 className={classes.link}
                 href="https://soundcloud.com/chrisstathmusic"
               >
-                SoundCloud
-              </a>
+                Soundcloud
+              </Link>
             </Typography>
           </Grid>
           <Grid item xs={12}>
             <Typography className={classes.footerTextRight}>
-              <a
+              <Link
+                color="#ffffff"
+                underline="none"
+                variant="h6"
                 className={classes.link}
                 href="https://www.youtube.com/channel/UCSphXoxsxYp4uK37rVDl6lA"
               >
-                YouTube
-              </a>
+                Youtube
+              </Link>
             </Typography>
           </Grid>
         </Grid>
       </Grid>
     </div>
   );
-}
+};
 
-export default FooterMobile;
+export default Footer;
