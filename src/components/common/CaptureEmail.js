@@ -69,7 +69,7 @@ const CaptureEmail = () => {
                 variant="outlined"
                 placeholder="Enter your email..."
                 helperText={error ? "Enter valid email" : null}
-                value={emailValue}
+                value={emailValue || ''}
                 className={classes.emailInput}
                 sx={{ input: { color: "white" } }}
                 onChange={handleChange}

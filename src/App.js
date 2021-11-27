@@ -1,17 +1,13 @@
+import Header from "./components/layout/navigation/Header";
+import Footer from "./components/layout/footer/Footer";
+import LandingPage from "./views/landing/LandingPage";
 import { Component } from "react";
 import { CssBaseline } from "@mui/material";
-import Header from "./components/layout/navigation/Header";
-import { ThemeProvider, Zoom } from "@mui/material";
-import theme from "./theme/theme";
-import BackgroundVideo from "./components/background-video/BackgroundVideo";
-import MusicVideoContent from "./components/common/MusicVideoContent";
-import Testimonial from "./components/common/Testimonial";
-import FooterDesktop from "./components/layout/footer/FooterDesktop";
-import { isMobile } from "react-device-detect";
-import FooterMobile from "./components/layout/footer/FooterMobile";
-import Parse from "parse/dist/parse.min.js";
 import { SnackbarProvider } from "notistack";
-import Footer from "./components/layout/footer/Footer";
+import { ThemeProvider, Zoom } from "@mui/material";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
+import theme from "./theme/theme";
+import Parse from "parse/dist/parse.min.js";
 
 class App extends Component {
   constructor(props) {
@@ -49,13 +45,15 @@ class App extends Component {
           classes={{ variantSuccess: "#ffffff" }}
           TransitionComponent={Zoom}
         >
-          <Header onAnimate={setAnimateTrue} resetAnimate={setAnimateFalse} />
-          <main style={{ overflow: "hidden" }}>
-            <BackgroundVideo animate={this.state.animate} />
-            <MusicVideoContent />
-            <Testimonial />
+          <BrowserRouter>
+            <Header onAnimate={setAnimateTrue} resetAnimate={setAnimateFalse} />
+            <main style={{ overflow: "hidden" }}>
+              <Routes>
+                <Route path="/" element={<LandingPage animate={this.state.animate || ''} />} />
+              </Routes>
+            </main>
             <Footer />
-          </main>
+          </BrowserRouter>
         </SnackbarProvider>
       </ThemeProvider>
     );

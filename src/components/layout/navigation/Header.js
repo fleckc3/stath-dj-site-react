@@ -1,5 +1,6 @@
 import { AppBar, Box, Toolbar, IconButton } from "@mui/material";
 import SideDrawer from "./SideDrawer";
+import DiscographyDialog from "../../common/dialog/discography/DiscographyDialog";
 import MenuIcon from "@mui/icons-material/Menu";
 import Logo from "../../../assets/images/cs-logo-white.png";
 import { makeStyles } from "@mui/styles";
@@ -26,6 +27,7 @@ const Header = ({ onAnimate, resetAnimate }) => {
   const classes = useStyles();
   const [scrollStyle, setScrollStyle] = useState("transparent");
   const [openDrawer, setOpenDrawer] = useState(false);
+  const [openDiscography, setOpenDiscography] = useState(false);
 
   const onScrollHandler = (event) => {
     if (window.scrollY > 300) {
@@ -44,6 +46,17 @@ const Header = ({ onAnimate, resetAnimate }) => {
 
     return () => window.removeEventListener("scroll", onScrollHandler);
   }, []);
+
+  const handleDiscographyClose = () => {
+    setOpenDiscography(false);
+  };
+
+  const handleDiscographyOpen = () => {
+    setOpenDiscography(true);
+    setOpenDrawer(false);
+
+  }
+
 
   return (
     <Box>
@@ -67,7 +80,11 @@ const Header = ({ onAnimate, resetAnimate }) => {
         onToggleDrawer={handleDrawerToggle}
         onAnimate={onAnimate}
         resetAnimate={resetAnimate}
+        onOpenDiscography={handleDiscographyOpen}
       />
+      {openDiscography && (
+        <DiscographyDialog close={handleDiscographyClose} />
+      )}
     </Box>
   );
 };

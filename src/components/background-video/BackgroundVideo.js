@@ -92,7 +92,7 @@ const BackgroundVideo = ({ animate }) => {
           id="bounce"
           className={
             animate
-              ? "animate__animated animate__delay-1s animate__shakeX animate__repeat-2"
+              ? "animate__animated animate__delay-1s animate__bounce animate__repeat-2"
               : null
           }
         >

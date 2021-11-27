@@ -7,7 +7,7 @@ import Parse from "parse/dist/parse.min.js";
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
-    height: "300px",
+    height: "320px",
     backgroundColor: "#000000",
     position: "relative",
   },
@@ -89,6 +89,7 @@ function FooterMobile({ onFormOpen }) {
               <Link
                 className={classes.link}
                 color="#ffffff"
+                variant="h4"
                 onClick={onFormOpen}
                 underline="none"
                 component="button"
@@ -98,7 +99,7 @@ function FooterMobile({ onFormOpen }) {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item container xs={3} spacing={1}>
+        <Grid item container xs={6} spacing={1} justifyContent="flex-end">
           <Grid item xs={12}>
             <Typography className={classes.footerTextRight} variant="h4">
               Music

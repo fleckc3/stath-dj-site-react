@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SideDrawer({ open, onToggleDrawer, onAnimate, resetAnimate }) {
+function SideDrawer({ open, onToggleDrawer, onAnimate, resetAnimate, onOpenDiscography }) {
   const classes = useStyles();
 
   const handlePdfDownload = async () => {
@@ -42,6 +42,7 @@ function SideDrawer({ open, onToggleDrawer, onAnimate, resetAnimate }) {
     onAnimate();
     onToggleDrawer();
   };
+
 
   return (
     <Drawer
@@ -74,10 +75,12 @@ function SideDrawer({ open, onToggleDrawer, onAnimate, resetAnimate }) {
           <ListItem>
             <ListItemText>
               <Link
+                component="button"
                 variant="h5"
                 href="#"
                 underline="none"
                 className={classes.link}
+                onClick={onOpenDiscography}
                 color="#ffffff"
               >
                 Discography

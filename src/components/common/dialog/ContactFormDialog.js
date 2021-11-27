@@ -13,6 +13,7 @@ import {
 import { makeStyles } from "@mui/styles";
 import isEmail from "validator/lib/isEmail";
 import isMobilePhone from "validator/lib/isMobilePhone";
+import { isMobile } from "react-device-detect";
 import { useSnackbar } from "notistack";
 import { useState } from "react";
 import Parse from "parse/dist/parse.min.js";
@@ -88,6 +89,7 @@ function ContactFormDialog({ close }) {
         enqueueSnackbar("Groovy, see ya for a party soon!", {
           variant: "warning",
         });
+        close();
       } catch (error) {
         console.error("Error while creating PartyList: ", error);
         enqueueSnackbar("There was an error submitting your contact details", {
@@ -96,7 +98,8 @@ function ContactFormDialog({ close }) {
       }
     }
   };
-  const handleOpenEmail = () => {
+  const handleOpenEmail = (event) => {
+    event.preventDefault();
     window.open("mailto:ChrisStathMusic@gmail.com");
   };
 
@@ -107,7 +110,7 @@ function ContactFormDialog({ close }) {
       fullWidth
       PaperProps={{
         sx: {
-          background: "rgba(245,245,245, 0.9)",
+          background: "#ffffff",
         },
       }}
     >
@@ -128,7 +131,7 @@ function ContactFormDialog({ close }) {
               <TextField
                 label="Email"
                 variant="outlined"
-                value={email}
+                value={email || ''}
                 helperText={error.email ? "Enter valid email" : null}
                 fullWidth
                 onChange={handleEmailChange}
@@ -139,7 +142,7 @@ function ContactFormDialog({ close }) {
               <TextField
                 label="Phone"
                 variant="outlined"
-                value={phone}
+                value={phone || ''}
                 helperText={error.phone ? "Enter valid phone number" : null}
                 fullWidth
                 onChange={handlePhoneChange}
@@ -154,10 +157,9 @@ function ContactFormDialog({ close }) {
             <Grid item xs={12} textAlign="center">
               <Link
                 component="button"
-                variant="h5"
+                variant={isMobile ? "h6" : "h5"}
                 className={classes.link}
                 onClick={handleOpenEmail}
-                preventDefault
               >
                 ChrisStathMusic@gmail.com
               </Link>
