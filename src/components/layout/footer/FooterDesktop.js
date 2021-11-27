@@ -2,7 +2,6 @@ import { makeStyles } from "@mui/styles";
 import { Grid, Link, Typography } from "@mui/material";
 import LemonHead from "../../../assets/images/lemon-head.png";
 import Stath from "../../../assets/images/stath-logo-accented.png";
-import { useState } from "react";
 import Parse from "parse/dist/parse.min.js";
 
 const useStyles = makeStyles((theme) => ({

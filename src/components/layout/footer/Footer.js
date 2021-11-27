@@ -9,7 +9,6 @@ function Footer() {
 
   const handleFormOpen = () => {
     setOpenContactForm(true);
-    console.log("hey hey hye hey hey")
   };
 
   const handleFormClose = () => {
