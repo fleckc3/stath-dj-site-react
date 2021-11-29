@@ -125,7 +125,7 @@ function FooterMobile({ onFormOpen }) {
                 underline="none"
                 variant="h6"
                 className={classes.link}
-                href="https://music.apple.com/us/artist/chris-stath"
+                href="https://music.apple.com/us/artist/chris-stath/1438478924"
               >
                 Apple Music
               </Link>

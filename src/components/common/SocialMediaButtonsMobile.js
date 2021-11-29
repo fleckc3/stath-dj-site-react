@@ -22,7 +22,7 @@ const SocialMediaButtons = () => {
           bgColor="none"
           fgColor="white"
           style={!isMobile ? iconSizeDesktop : null}
-          url="https://music.apple.com/us/artist/chris-stath"
+          url="https://music.apple.com/us/artist/chris-stath/1438478924"
           network="itunes"
         />
       </Grid>
@@ -31,7 +31,7 @@ const SocialMediaButtons = () => {
           bgColor="none"
           fgColor="white"
           style={!isMobile ? iconSizeDesktop : null}
-          url="https://www.instagram.com/chrisstathmusic"
+          url="https://www.instagram.com/chrisstathmusic/"
         />
       </Grid>
       <Grid item xs={2} textAlign="center">
