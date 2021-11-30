@@ -8,8 +8,10 @@ import WorldOnFire from "../../assets/images/world_on_fire.png";
 const useStyles = makeStyles((theme) => ({
   container: {
     width: "100vw",
-    height: "auto",
+    height: "100vh",
     padding: "70px 50px 50px",
+    display: "flex",
+    alignContent: "center",
     background: `linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url(${GreenWall})`,
     backgroundPosition: "center",
     backgroundSize: "cover",
@@ -40,8 +42,6 @@ const useStyles = makeStyles((theme) => ({
 
 const MusicVideoContent = () => {
   const classes = useStyles();
-
- 
 
   return (
     <div className={classes.container}>

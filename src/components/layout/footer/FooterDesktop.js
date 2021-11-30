@@ -1,51 +1,53 @@
 import { makeStyles } from "@mui/styles";
-import { Grid, Link, Typography } from "@mui/material";
+import { Box, Grid, Link, Typography } from "@mui/material";
 import LemonHead from "../../../assets/images/lemon-head.png";
+import { isMobile } from "react-device-detect";
 import Stath from "../../../assets/images/stath-logo-accented.png";
 import Parse from "parse/dist/parse.min.js";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
-    height: "300px",
     backgroundColor: "#000000",
-    position: "relative",
+    paddingTop: "100px",
+    paddingBottom: "20px",
   },
   lemonHead: {
     width: "auto",
     height: "100px",
-    position: "absolute",
     zIndex: "1",
-    bottom: 0,
-    left: "50%",
-    marginBottom: "10px",
-    transform: "translateX(-40%)",
-    [theme.breakpoints.down("sm")]: {
+    marginBottom: "12px",
+    [theme.breakpoints.down("md")]: {
       height: "70px",
-      marginBottom: "10px",
     },
   },
   stathLettering: {
-    height: "auto",
-    width: "25%",
-    position: "absolute",
-    bottom: 0,
-    left: "50%",
-    transform: "translateX(-50%)",
-    [theme.breakpoints.down("sm")]: {
-      width: "100%",
-      left: "0",
-      transform: "none",
+    height: "147px",
+    width: "auto",
+    [theme.breakpoints.down("md")]: {
+      height: "103px",
     },
   },
   text: {
     color: "#ffffff",
+    textAlign: "end",
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "start",
+    },
   },
   footerTextRight: {
     color: "#ffffff",
     textAlign: "end",
   },
+  download: {
+    color: "#ffffff",
+    textAlign: "end",
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "start",
+    },
+  },
   link: {
+    textAlign: "end",
     "&:hover": {
       color: "#00CC99",
     },
@@ -75,25 +77,45 @@ const Footer = ({ onFormOpen }) => {
   };
 
   return (
-    <div className={classes.root}>
-      <img className={classes.lemonHead} src={LemonHead} alt="Lemon Head" />
-      <img className={classes.stathLettering} src={Stath} alt="Chris Stath" />
-      <Grid container padding={2} justifyContent="center">
-        <Grid item container xs={3} spacing={2}>
+    <Box className={classes.root}>
+      <Grid container pr={3} pl={3}>
+        <Grid item container xs={12} sm={8} alignItems="flex-end" >
+          <Grid item xs={1}>
+            <img
+              className={classes.lemonHead}
+              src={LemonHead}
+              alt="Lemon Head"
+            />
+          </Grid>
+          <Grid item xs={11}>
+            <img
+              className={classes.stathLettering}
+              src={Stath}
+              alt="Chris Stath"
+            />
+          </Grid>
+        </Grid>
+        <Grid item container xs={6} sm={2}>
           <Grid item xs={12}>
-            <Typography className={classes.text} variant="h4">
-              Press Kit
-            </Typography>
-            <Link
-              className={classes.link}
-              color="#ffffff"
-              variant="h6"
-              onClick={handlePdfDownload}
-              underline="none"
-              component="button"
-            >
-              Download
-            </Link>
+            <Grid item xs={12}>
+              <Typography className={classes.text} variant="h4">
+                Press Kit
+              </Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography className={classes.download}>
+                <Link
+                  className={classes.link}
+                  color="#ffffff"
+                  variant="h6"
+                  onClick={handlePdfDownload}
+                  underline="none"
+                  component="button"
+                >
+                  Download
+                </Link>
+              </Typography>
+            </Grid>
           </Grid>
           <Grid item xs={12}>
             <Typography className={classes.text} variant="h4">
@@ -110,7 +132,7 @@ const Footer = ({ onFormOpen }) => {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item container xs={3} spacing={1}>
+        <Grid item container xs={6} sm={2}>
           <Grid item xs={12}>
             <Typography className={classes.footerTextRight} variant="h4">
               Music
@@ -170,7 +192,7 @@ const Footer = ({ onFormOpen }) => {
           </Grid>
         </Grid>
       </Grid>
-    </div>
+    </Box>
   );
 };
 
