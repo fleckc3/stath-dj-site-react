@@ -1,7 +1,7 @@
 import React from "react";
 import SpotifyPlaylist from "../music-players/SpotifyPlaylist";
 import { makeStyles } from "@mui/styles";
-import { Grid } from "@mui/material";
+import { Grid, useMediaQuery } from "@mui/material";
 import GreenWall from "../../assets/images/green-wall.jpeg";
 import WorldOnFire from "../../assets/images/world_on_fire.png";
 
@@ -9,7 +9,10 @@ const useStyles = makeStyles((theme) => ({
   container: {
     width: "100vw",
     height: "100vh",
-    padding: "70px 50px 50px",
+    [theme.breakpoints.down("xl")]: {
+      height: "120vh",
+    },
+    padding: "70px 50px",
     display: "flex",
     alignContent: "center",
     background: `linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url(${GreenWall})`,
@@ -42,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
 
 const MusicVideoContent = () => {
   const classes = useStyles();
+  const large = useMediaQuery("(min-width: 1400px");
 
   return (
     <div className={classes.container}>

@@ -85,18 +85,25 @@ function FooterMobile({ onFormOpen }) {
             </Link>
           </Grid>
           <Grid item xs={12}>
-            <Typography className={classes.text} variant="h4">
-              <Link
-                className={classes.link}
-                color="#ffffff"
-                variant="h4"
-                onClick={onFormOpen}
-                underline="none"
-                component="button"
-              >
+            <Grid item xs={12}>
+              <Typography className={classes.text} variant="h4">
                 Contact
-              </Link>
-            </Typography>
+              </Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography className={classes.download}>
+                <Link
+                  className={classes.link}
+                  color="#ffffff"
+                  onClick={onFormOpen}
+                  underline="none"
+                  component="button"
+                  variant="h6"
+                >
+                  Email
+                </Link>
+              </Typography>
+            </Grid>
           </Grid>
         </Grid>
         <Grid item container xs={6} spacing={1} justifyContent="flex-end">
