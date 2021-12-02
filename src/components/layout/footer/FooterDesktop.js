@@ -31,14 +31,11 @@ const useStyles = makeStyles((theme) => ({
   },
   text: {
     color: "#ffffff",
-    textAlign: "center",
-    [theme.breakpoints.down("sm")]: {
-      textAlign: "start",
-    },
+    textAlign: "start",
   },
   footerTextRight: {
     color: "#ffffff",
-    textAlign: "center",
+    textAlign: "start",
   },
   download: {
     color: "#ffffff",
@@ -48,7 +45,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   link: {
-    textAlign: "center",
+    textAlign: "start",
+
     "&:hover": {
       color: "#00CC99",
     },
@@ -56,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
   linkRight: {
     textDecoration: "none",
     color: "#ffffff",
-    textAlign: "center",
+    textAlign: "start",
   },
 }));
 
@@ -81,12 +79,7 @@ const Footer = ({ onFormOpen }) => {
     <Box className={classes.root}>
       <Grid container pr={3} pl={3}>
         <Grid item container md={12} lg={6} justifyContent="center">
-          <Grid
-            item
-            container
-            xs={8}
-            alignItems="center"
-          >
+          <Grid item container xs={8} alignItems="center">
             <Grid item xs={2} container justifyContent="flex-end">
               <img
                 className={classes.lemonHead}
@@ -104,14 +97,14 @@ const Footer = ({ onFormOpen }) => {
           </Grid>
         </Grid>
         <Grid item container md={12} lg={6}>
-          <Grid item container xs={12} justifyContent="center">
-            <Grid item sm={4} lg={3}>
+          <Grid item container xs={12} justifyContent="flex-end">
+            <Grid item sm={3}>
               <Grid item xs={12}>
                 <Typography className={classes.text} variant="h4">
                   Contact
                 </Typography>
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} container>
                 <Typography className={classes.download}>
                   <Link
                     className={classes.link}
@@ -126,13 +119,13 @@ const Footer = ({ onFormOpen }) => {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid item sm={4} lg={3}>
+            <Grid item sm={3}>
               <Grid item xs={12}>
                 <Typography className={classes.text} variant="h4">
                   Press Kit
                 </Typography>
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} container>
                 <Typography className={classes.download}>
                   <Link
                     className={classes.link}
@@ -147,7 +140,7 @@ const Footer = ({ onFormOpen }) => {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid item sm={4} lg={3}>
+            <Grid item sm={3}>
               <Grid item xs={12}>
                 <Typography className={classes.footerTextRight} variant="h4">
                   Music
@@ -188,7 +181,7 @@ const Footer = ({ onFormOpen }) => {
                     className={classes.link}
                     href="https://soundcloud.com/chrisstathmusic"
                   >
-                    Soundcloud
+                    SoundCloud
                   </Link>
                 </Typography>
               </Grid>

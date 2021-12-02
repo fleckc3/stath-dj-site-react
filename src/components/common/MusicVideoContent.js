@@ -9,10 +9,16 @@ const useStyles = makeStyles((theme) => ({
   container: {
     width: "100vw",
     height: "100vh",
-    [theme.breakpoints.down("xl")]: {
-      height: "120vh",
+    ["@media (min-width:1200px)"]: {
+      height: "180vh",
     },
-    padding: "70px 50px",
+    ["@media (min-width:1920px)"]: {
+      height: "100vh",
+    },
+    [theme.breakpoints.down("lg")]: {
+      height: "130vh",
+    },
+    padding: "20px",
     display: "flex",
     alignContent: "center",
     background: `linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url(${GreenWall})`,
@@ -23,21 +29,28 @@ const useStyles = makeStyles((theme) => ({
     zIndex: "-1",
   },
   player: {
-    width: "640px",
+    width: "940px",
     height: "auto",
+    padding: "20px",
+
+    [theme.breakpoints.down("lg")]: {
+      width: "640px",
+    },
   },
   youtube: {
     position: "relative",
-    paddingBottom: "56.25%",
+    aspectRatio: 16 / 9,
   },
   spotify: {
     position: "relative",
-    paddingBottom: "56.25%",
-    marginBottom: "50px",
+    aspectRatio: 16 / 9,
+    [theme.breakpoints.down("lg")]: {
+      marginBottom: "50px",
+    },
   },
   wof: {
     textAlign: "center",
-    [theme.breakpoints.down("lg")]: {
+    [theme.breakpoints.down("md")]: {
       marginTop: "50px",
     },
   },
@@ -52,7 +65,7 @@ const MusicVideoContent = () => {
       <Grid
         container
         direction="row"
-        justifyContent="space-around"
+        justifyContent="space-evenly"
         alignItems="center"
       >
         <div className={classes.player}>

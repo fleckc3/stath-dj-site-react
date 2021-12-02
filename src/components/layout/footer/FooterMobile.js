@@ -147,7 +147,7 @@ function FooterMobile({ onFormOpen }) {
                 className={classes.link}
                 href="https://soundcloud.com/chrisstathmusic"
               >
-                Soundcloud
+                SoundCloud
               </Link>
             </Typography>
           </Grid>

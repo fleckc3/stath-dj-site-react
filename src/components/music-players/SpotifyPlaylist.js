@@ -6,7 +6,6 @@ const useStyles = makeStyles((theme) => ({
     border: "none",
     overflow: "hidden",
     display: "block",
-    marginBottom: "20px",
   },
   player: {
     border: "none",
@@ -24,8 +23,8 @@ const SpotifyPlaylist = () => {
         title="artist_label"
         src="https://open.spotify.com/follow/1/?uri=spotify:artist:6RZiysr25NvqsC76k0jcdn?si=uzWgTEBjQvaBKGWZRSocJw&size=detail&theme=dark"
         id="iframe-header"
-        width="300"
-        height="56"
+        width="100%"
+        height="90"
         frameBorder="0"
         className={classes.follow}
         allowtransparency="false"
@@ -34,7 +33,7 @@ const SpotifyPlaylist = () => {
         title="playlist"
         src="https://open.spotify.com/embed/playlist/1DW2GwRVyNMckGFqqut1XI"
         width="100%"
-        height="90%"
+        height="100%"
         frameBorder="0"
         className={classes.player}
         allowtransparency="true"
