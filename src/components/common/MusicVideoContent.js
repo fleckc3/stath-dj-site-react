@@ -3,21 +3,30 @@ import SpotifyPlaylist from "../music-players/SpotifyPlaylist";
 import { makeStyles } from "@mui/styles";
 import { Grid, useMediaQuery } from "@mui/material";
 import GreenWall from "../../assets/images/green-wall.jpeg";
-import WorldOnFire from "../../assets/images/world_on_fire.png";
+import YoutubeVideo from "components/music-players/YoutubeVideo";
 
 const useStyles = makeStyles((theme) => ({
   container: {
     width: "100vw",
     height: "100vh",
-    ["@media (min-width:1200px)"]: {
-      height: "180vh",
-    },
-    ["@media (min-width:1920px)"]: {
-      height: "100vh",
-    },
+    // ["@media (min-width:1200px)"]: {
+    //   height: "180vh",
+    // },
+    // ["@media (max-height:845px)"]: {
+    //   height: "190vh !important",
+    // },
+    // ["@media (max-height:690px)"]: {
+    //   height: "250vh !important",
+    // },
+
+
     [theme.breakpoints.down("lg")]: {
-      height: "130vh",
+      height: "170vh",
     },
+    [theme.breakpoints.down("md")]: {
+      // height: "130vh",
+    },
+
     padding: "20px",
     display: "flex",
     alignContent: "center",
@@ -28,32 +37,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundBlendMode: "darken",
     zIndex: "-1",
   },
-  player: {
-    width: "940px",
-    height: "auto",
-    padding: "20px",
-
-    [theme.breakpoints.down("lg")]: {
-      width: "640px",
-    },
-  },
-  youtube: {
-    position: "relative",
-    aspectRatio: 16 / 9,
-  },
-  spotify: {
-    position: "relative",
-    aspectRatio: 16 / 9,
-    [theme.breakpoints.down("lg")]: {
-      marginBottom: "50px",
-    },
-  },
-  wof: {
-    textAlign: "center",
-    [theme.breakpoints.down("md")]: {
-      marginTop: "50px",
-    },
-  },
 }));
 
 const MusicVideoContent = () => {
@@ -62,41 +45,13 @@ const MusicVideoContent = () => {
 
   return (
     <div className={classes.container}>
-      <Grid
-        container
-        direction="row"
-        justifyContent="space-evenly"
-        alignItems="center"
-      >
-        <div className={classes.player}>
-          <div className={classes.spotify}>
-            <SpotifyPlaylist />
-          </div>
-        </div>
-        <div className={classes.player}>
-          <img
-            src={WorldOnFire}
-            alt="World on Fire"
-            width="100%"
-            className={classes.wof}
-          />
-          <div className={classes.youtube}>
-            <iframe
-              width="100%"
-              height="100%"
-              style={{ position: "absolute" }}
-              src="https://www.youtube.com/embed/174rjcy0hEs"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
-        </div>
-
-        {/* <div className={classes.player}>
-          <SoundCloudPlayer />
-        </div> */}
+      <Grid container justifyContent="space-between" alignItems="center">
+        <Grid item container justifyContent="center" md={12} lg={6}>
+          <SpotifyPlaylist />
+        </Grid>
+        <Grid item md={12} lg={6}>
+          <YoutubeVideo />
+        </Grid>
       </Grid>
     </div>
   );
