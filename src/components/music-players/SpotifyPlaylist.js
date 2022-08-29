@@ -1,44 +1,56 @@
 import { makeStyles } from "@mui/styles";
-import React from "react";
+import Parse from "parse/dist/parse.min.js";
+import { useEffect, useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(6),
-    overflow: 'hidden',
+    overflow: "hidden",
     [theme.breakpoints.down("lg")]: {
       padding: theme.spacing(2),
-
     },
   },
-  // player: {
-  //   aspectRatio: 16 / 9,
-  // }
+  player: {
+    aspectRatio: 16 / 9,
+  },
 }));
 
 const SpotifyPlaylist = () => {
   const classes = useStyles();
+  const [playlist, setPlaylist] = useState("");
+
+  const fetchPlaylist = async () => {
+    const SpotifyPlaylist = Parse.Object.extend("SpotifyPlaylist");
+    const query = new Parse.Query(SpotifyPlaylist);
+    try {
+      const results = await query.find();
+      for (const object of results) {
+        // Access the Parse Object attributes using the .GET method
+        const url = object.get("url");
+        setPlaylist(url);
+      }
+    } catch (error) {
+      console.error("Error while fetching SpotifyPlaylist", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchPlaylist();
+  }, []);
 
   return (
     <div className={classes.root}>
       <iframe
-        title="artist_label"
-        src="https://open.spotify.com/follow/1/?uri=spotify:artist:6RZiysr25NvqsC76k0jcdn?si=uzWgTEBjQvaBKGWZRSocJw&size=detail&theme=dark"
-        id="iframe-header"
-        width="100%"
-        height="90"
-        className={classes.follow}
-        frameBorder="0"
-        allowtransparency="false"
-      ></iframe>
-      <iframe
         title="playlist"
-        src="https://open.spotify.com/embed/playlist/1DW2GwRVyNMckGFqqut1XI"
-        frameBorder="0"
+        style={{ borderRadius: "12px" }}
+        src={playlist}
         width="100%"
         height="550"
         className={classes.player}
-        allowtransparency="true"
-        allow="encrypted-media"
+        frameBorder="0"
+        allowFullScreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
       ></iframe>
     </div>
   );

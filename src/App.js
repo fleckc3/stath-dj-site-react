@@ -52,6 +52,8 @@ class App extends Component {
                   path="/"
                   element={<LandingPage animate={this.state.animate || ""} />}
                 />
+                <Route path="/aece69c4a17b4224443c8a0876311e21" element={''} />
+"
               </Routes>
             </main>
             <Footer />

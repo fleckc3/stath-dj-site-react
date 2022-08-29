@@ -41,7 +41,6 @@ const useStyles = makeStyles((theme) => ({
 
 const MusicVideoContent = () => {
   const classes = useStyles();
-  const large = useMediaQuery("(min-width: 1400px");
 
   return (
     <div className={classes.container}>
