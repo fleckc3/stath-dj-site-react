@@ -44,7 +44,7 @@ const CaptureEmail = () => {
       newEmail.set("email", emailValue);
 
       try {
-        const result = await newEmail.save();
+        await newEmail.save();
         enqueueSnackbar("Groovy, see ya for a party soon!", {
           variant: "warning",
         });

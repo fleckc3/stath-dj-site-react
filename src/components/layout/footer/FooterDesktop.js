@@ -1,7 +1,6 @@
 import { makeStyles } from "@mui/styles";
 import { Box, Grid, Link, Typography } from "@mui/material";
 import LemonHead from "../../../assets/images/lemon-head.png";
-import { isMobile } from "react-device-detect";
 import Stath from "../../../assets/images/stath-logo-accented.png";
 import Parse from "parse/dist/parse.min.js";
 

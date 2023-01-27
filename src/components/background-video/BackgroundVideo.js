@@ -78,7 +78,9 @@ const BackgroundVideo = ({ animate }) => {
         className={classes.backgroundVideo}
         loop
         autoPlay
+        playsInline
         muted
+        disablePictureInPicture
         onCanPlayThrough={handleOnVideoLoaded}
       >
         {isMobile ? (

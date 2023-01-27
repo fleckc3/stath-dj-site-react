@@ -1,7 +1,7 @@
 import React from "react";
 import SpotifyPlaylist from "../music-players/SpotifyPlaylist";
 import { makeStyles } from "@mui/styles";
-import { Grid, useMediaQuery } from "@mui/material";
+import { Grid } from "@mui/material";
 import GreenWall from "../../assets/images/green-wall.jpeg";
 import YoutubeVideo from "components/music-players/YoutubeVideo";
 

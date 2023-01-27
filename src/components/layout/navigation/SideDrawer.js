@@ -21,17 +21,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SideDrawer({ open, onToggleDrawer, onAnimate, resetAnimate, onOpenDiscography }) {
+function SideDrawer({
+  open,
+  onToggleDrawer,
+  onAnimate,
+  resetAnimate,
+  onOpenDiscography,
+}) {
   const classes = useStyles();
 
   const handlePdfDownload = async () => {
+    const newWindow = window.open();
     const Files = Parse.Object.extend("Files");
     const query = new Parse.Query(Files);
     try {
       const results = await query.find();
       for (const object of results) {
-        const fileName = object.get("fileName");
-        window.open(fileName._url);
+        const fileName = await object.get("fileName");
+        newWindow.location = fileName._url;
       }
     } catch (error) {
       console.error("Error while fetching Files", error);
@@ -42,7 +49,6 @@ function SideDrawer({ open, onToggleDrawer, onAnimate, resetAnimate, onOpenDisco
     onAnimate();
     onToggleDrawer();
   };
-
 
   return (
     <Drawer

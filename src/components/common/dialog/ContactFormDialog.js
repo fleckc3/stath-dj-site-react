@@ -85,7 +85,7 @@ function ContactFormDialog({ close }) {
 
     if (!error.email && !error.phone) {
       try {
-        const result = await newContact.save();
+        await newContact.save();
         enqueueSnackbar("Groovy, see ya for a party soon!", {
           variant: "warning",
         });

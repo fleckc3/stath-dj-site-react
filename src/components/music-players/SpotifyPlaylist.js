@@ -30,7 +30,7 @@ const SpotifyPlaylist = () => {
         setPlaylist(url);
       }
     } catch (error) {
-      console.error("Error while fetching SpotifyPlaylist", error);
+      console.log("Error while fetching SpotifyPlaylist", error);
     }
   };
 
